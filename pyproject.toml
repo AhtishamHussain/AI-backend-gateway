@@ -1,0 +1,32 @@
+[project]
+name = "ai-backend-gateway"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Ahtisham Hussain", email = "ahtishamhussain5214@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.141.1",
+    "passlib[bcrypt]>=1.7.4",
+    "pyjwt>=2.13.0",
+    "python-multipart>=0.0.32",
+    "sqlmodel>=0.0.39",
+    "uvicorn[standard]>=0.52.0",
+]
+
+[project.scripts]
+ai-backend-gateway = "ai_backend_gateway:main"
+
+[build-system]
+requires = ["uv_build>=0.12.0,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pyright>=1.1.411",
+    "pytest>=9.1.1",
+    "ruff>=0.16.0",
+]
