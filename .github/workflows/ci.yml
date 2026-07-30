@@ -1,0 +1,27 @@
+name: Automated Production CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out project files
+      uses: actions/checkout@v4
+
+    - name: Set up modern Python environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+
+    - name: Install uv Package Manager
+      uses: astral-sh/setup-uv@v5
+
+    - name: Verify Automated App Unit Tests
+      run: |
+        uv sync
+        uv run pytest
